@@ -57,6 +57,8 @@ Upload your **Form 16 (PDF)**, review extracted data, enter your deductions (80C
 ## 🗂 Project Structure
 
 Typical repo structure:
+
+```text
 .
 ├─ app.py
 ├─ parser.py
