@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old vs. New Tax Regime</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+        }
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+        .heading-line::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #0d6efd;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        .back-button {
+            background-color: #0d6efd;
+            color: #fff;
+            border-radius: 2rem;
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0b5ed7;
+        }
+        .comparison-table th, .comparison-table td {
+            vertical-align: middle;
+        }
+        .comparison-table .table-info {
+            background-color: #e3f2fd;
+        }
+    </style>
+</head>
+<body class="p-4">
+
+<div class="container mt-5">
+    <a href="{{ url_for('index') }}" class="btn back-button mb-4">← Back to Deductions</a>
+
+    <div class="card p-5">
+        <h1 class="display-6 fw-bold mb-4">Old vs. New Tax Regime: Explained</h1>
+        
+        <p class="lead text-muted">
+            Understanding the two tax regimes is crucial for making an informed choice. The main difference lies in the tax slabs and the availability of deductions and exemptions.
+        </p>
+
+        <h3 class="mt-4 text-primary">Key Differences in a Nutshell</h3>
+        
+        <table class="table table-bordered mt-4 comparison-table">
+            <thead>
+                <tr>
+                    <th scope="col">Feature</th>
+                    <th scope="col">Old Tax Regime</th>
+                    <th scope="col">New Tax Regime</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Deductions & Exemptions</th>
+                    <td>Available (e.g., HRA, LTA, 80C, 80D). You can reduce your taxable income.</td>
+                    <td>Very limited deductions. Standard Deduction is not available (except for salary and pension income).</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tax Slabs</th>
+                    <td>Tax slabs are higher. Tax is calculated after all deductions are applied.</td>
+                    <td>Tax slabs are lower and more numerous. Tax is calculated on a much simpler basis.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Choice</th>
+                    <td>The default option for many years. You can switch to the new regime.</td>
+                    <td>Introduced as an optional regime. You must choose it explicitly.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Applicability</th>
+                    <td>Often more beneficial for those with significant investments and expenses to claim as deductions.</td>
+                    <td>Generally more beneficial for those with few or no deductions to claim.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

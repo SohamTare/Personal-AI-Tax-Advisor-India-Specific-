@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Young Professional's Tax Advisor</title>
+        <!-- CSS stylesheet -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- JS script -->
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+
+    <body>
+        <!--navbar-->
+        <header class="main-header">
+            <div class="container nav-container">
+                <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='Logo/logo.png') }}" alt="Avatar Logo" style="width:80px;" class="rounded-pill"></a>
+                <a href="#" class="logo">TAX ADVISOR</a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#analyzer-tool">Analyzer Tool</a></li>
+                        <li><a href="#learn">Learn</a></li>
+                        <li><a href="#tax-saving-options">Tax-Saving Options</a></li>
+                        <li><a href="#about-us">About Us</a></li>
+                        <li><a href="#security-privacy">Security & Privacy</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!--Section-1 Home Page-->
+            <section id="home" class="hero-section">
+                <div class="container hero-content">
+                    <h1 class="fade-in-item">AI Tax Advisor</h1>
+                    <p class="fade-in-item">We're on a mission to make taxes simple. Upload your Form 16 and get clear,</br>personalized advice to navigate the tax landscape with confidence</p>
+                    </br></br><button class="cta-button fade-in-item" onclick="scrollToSection('analyzer-tool')">Analyze Form 16</button>
+                </div>
+            </section>
+
+            <!--Section-2 how it works-->
+            <section class="how-it-works-section">
+                <div class="container">
+                    <h2>How It Works</h2>
+                    <div class="steps-grid">
+                        <div class="step-card fade-in-item">
+                            <div class="icon-upload"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+                                </svg>
+                            </div>
+                            <h3>Step 1: Upload</h3>
+                            <p>Securely upload your Form 16 PDF</p>
+                        </div>
+                        <div class="step-card fade-in-item">
+                            <div class="icon-analyze"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                </svg>
+                            </div>
+                            <h3>Step 2: Analyze</h3>
+                            <p>Our AI instantly extracts and analyzes your income, deductions, and TDS.</p>
+                        </div>
+                        <div class="step-card fade-in-item">
+                            <div class="icon-save"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                </svg>
+                            </div>
+                            <h3>Step 3: Save</h3>
+                            <p>Get a personalized report with actionable tips to maximize your tax savings.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Section-3 User Benifits-->
+            <section class="features-preview-section">
+                <div class="container">
+                    <h2>What You'll Get</h2>
+                    <div class="features-grid">
+                        <div class="feature-card fade-in-item">
+                            <div class="icon-bank"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+                                <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z"/>
+                                </svg>
+                            </div>
+                            <h3>Simplified Salary Breakdown</h3>
+                            <p>Understand your gross vs. taxable income at a glance.</p>
+                        </div>
+                        <div class="feature-card fade-in-item">
+                            <div class="icon-check"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                                </svg>
+                            </div>
+                            <h3>Automated Deduction Check</h3>
+                            <p>See all the deductions you've already claimed clearly.</p>
+                        </div>
+                        <div class="feature-card fade-in-item">
+                            <div class="icon-money"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/>
+                                <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/>
+                                <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/>
+                                <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/>
+                                </svg>
+                            </div>
+                            <h3>Personalized Savings Plan</h3>
+                            <p>Discover new ways to save tax based on your unique profile.</p>
+                        </div>
+                        <div class="feature-card fade-in-item">
+                            <div class="icon-secure"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-shield-check" viewBox="0 0 16 16">
+                                <path d="M5.338 1.59a61 61 0 0 0-2.837.856.48.48 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.7 10.7 0 0 0 2.287 2.233c.346.244.652.42.893.533q.18.085.293.118a1 1 0 0 0 .101.025 1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/>
+                                <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+                                </svg>
+                            </div>
+                            <h3>100% Secure & Private</h3>
+                            <p>We use bank-level encryption and prioritize your privacy.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!--Section-4 Form-16 Analyzer -->
+
+            <section id="analyzer-tool" class="analyzer-tool-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 col-md-12">
+                            <div class="form-container">
+                                <h1 class="form-header">Calculate Your Tax Savings</h1>
+                                <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <label for="form16Upload" class="form-label">Upload Form 16 (PDF):</label>
+            <input class="form-control" type="file" id="form16Upload" name="file" accept=".pdf" required>
+        </div>
+    </div>
+
+    <!-- Personal Information Section -->
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="fullName" class="form-label">Full Name:</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="age" class="form-label">Age:</label>
+            <input type="number" class="form-control" id="age" name="age" required min="18">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="gender" class="form-label">Gender:</label>
+            <select class="form-select" id="gender" name="gender" required>
+                <option selected disabled value="">Choose...</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="employmentType" class="form-label">Employment Type:</label>
+            <select class="form-select" id="employmentType" name="employmentType" required>
+                <option selected disabled value="">Choose...</option>
+                <option>Private</option>
+                <option>Government</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="city" class="form-label">City:</label>
+            <input type="text" class="form-control" id="city" name="city" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="cityType" class="form-label">City Type:</label>
+            <select class="form-select" id="cityType" name="cityType" required>
+                <option selected disabled value="">Choose...</option>
+                <option>Metro</option>
+                <option>Non-Metro</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Tax & Income Details Section -->
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="taxRegime" class="form-label">Choose Tax Regime (New/Old):</label>
+            <select class="form-select" id="taxRegime" name="taxRegime">
+                <option selected>Not Sure</option>
+                <option>New Regime</option>
+                <option>Old Regime</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="hraReceived" class="form-label">Do you receive HRA from employer?</label>
+            <select class="form-select" id="hraReceived" name="hraReceived" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="y">Yes</option>
+                <option value="n">No</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="houseRent" class="form-label">Annual House Rent Paid (₹):</label>
+            <input type="number" class="form-control" id="houseRent" name="houseRent" placeholder="e.g., 120000" min="0" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="investments80C" class="form-label">Investments under 80C (PPF, ELSS, etc.) (₹):</label>
+            <input type="number" class="form-control" id="investments80C" name="investments80C" placeholder="e.g., 150000" min="0" required>
+        </div>
+    </div>
+
+    <!-- Medical & Loans Section -->
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="medInsuranceSelf" class="form-label">Medical Insurance Premium (Self+Family) (₹):</label>
+            <input type="number" class="form-control" id="medInsuranceSelf" name="medInsuranceSelf" placeholder="e.g., 25000" min="0" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="medInsuranceParents" class="form-label">Medical Insurance Premium (Parents) (₹):</label>
+            <input type="number" class="form-control" id="medInsuranceParents" name="medInsuranceParents" placeholder="e.g., 50000" min="0" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="parentsSenior" class="form-label">Are your parents senior citizens?</label>
+            <select class="form-select" id="parentsSenior" name="parentsSenior" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="y">Yes</option>
+                <option value="n">No</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="educationLoan" class="form-label">Education Loan Interest Paid (₹):</label>
+            <input type="number" class="form-control" id="educationLoan" name="educationLoan" placeholder="e.g., 30000" min="0" required>
+        </div>
+    </div>
+
+    <!-- Other Deductions Section -->
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="donations" class="form-label">Donations (₹):</label>
+            <input type="number" class="form-control" id="donations" name="donations" placeholder="e.g., 10000" min="0" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="savingsInterest" class="form-label">Savings Account Interest (₹):</label>
+            <input type="number" class="form-control" id="savingsInterest" name="savingsInterest" placeholder="e.g., 8000" min="0" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="seniorDepositInterest" class="form-label">Senior Deposit Interest (₹):</label>
+            <input type="number" class="form-control" id="seniorDepositInterest" name="seniorDepositInterest" placeholder="For seniors only" min="0" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="npsEmployee" class="form-label">NPS Employee Contribution (₹):</label>
+            <input type="number" class="form-control" id="npsEmployee" name="npsEmployee" placeholder="e.g., 50000" min="0" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="npsAdditional" class="form-label">NPS Additional (₹):</label>
+            <input type="number" class="form-control" id="npsAdditional" name="npsAdditional" placeholder="e.g., 50000" min="0" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="homeLoanInterest" class="form-label">Home Loan Interest (₹):</label>
+            <input type="number" class="form-control" id="homeLoanInterest" name="homeLoanInterest" placeholder="e.g., 200000" min="0" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="firstTimeBuyer" class="form-label">First-time Home Buyer?</label>
+            <select class="form-select" id="firstTimeBuyer" name="firstTimeBuyer" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="y">Yes</option>
+                <option value="n">No</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="evLoanInterest" class="form-label">EV Loan Interest (₹):</label>
+            <input type="number" class="form-control" id="evLoanInterest" name="evLoanInterest" placeholder="e.g., 125000" min="0" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="selfDisability" class="form-label">Self Disability:</label>
+            <select class="form-select" id="selfDisability" name="selfDisability" required>
+                <option selected>None</option>
+                <option>Severe (80%+)</option>
+                <option>Non-severe (40-79%)</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="dependentDisability" class="form-label">Dependent Disability:</label>
+            <select class="form-select" id="dependentDisability" name="dependentDisability" required>
+                <option selected>None</option>
+                <option>Severe (80%+)</option>
+                <option>Non-severe (40-79%)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+        <button type="submit" class="btn btn-primary calculate-button">
+            Calculate My Tax
+        </button>
+    </div>
+</form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="results-dashboard" class="results-dashboard hidden">
+                    <h3>Your Personalized Tax Report</h3>
+
+                    <div class="dashboard-module fade-in-item">
+                        <h4>Your Salary Snapshot</h4>
+                        <p>Gross Salary: <span id="gross-salary">₹0</span></p>
+                        <p>Exemptions (HRA, etc.): <span id="exemptions">₹0</span></p>
+                        <p>Taxable Income: <span id="taxable-income">₹0</span></p>
+                    </div>
+
+                    <div class="dashboard-module fade-in-item">
+                        <h4>Your Tax Summary</h4>
+                        <p>Total Tax Due: <span id="total-tax-due">₹0</span></p>
+                        <p>Tax Already Paid (TDS): <span id="tax-paid-tds">₹0</span></p>
+                        <p>Refund/Tax Payable: <span id="refund-payable">₹0</span></p>
+                    </div>
+
+                    <div class="dashboard-module fade-in-item">
+                        <h4>Deductions You've Claimed</h4>
+                        <ul id="claimed-deductions-list">
+                            <li>Section 80C: ₹0</li>
+                            <li>Section 80D: ₹0</li>
+                        </ul>
+                    </div>
+
+                    <div class="dashboard-module fade-in-item tax-saving-plan-module">
+                        <h4>Your Personalized Tax-Saving Plan</h4>
+                        <div id="tax-saving-opportunities">
+                            <div class="opportunity-card">
+                                <h5>Top Opportunity: NPS Investment</h5>
+                                <p>You can save an additional ₹50,000 in tax by investing in the National Pension System (NPS) under Section 80CCD(1B).</p>
+                                <a href="#tax-saving-options/nps" class="learn-more">Learn More &rarr;</a>
+                            </div>
+                            <div class="opportunity-card">
+                                <h5>Smart Saving: Savings Account Interest</h5>
+                                <p>Did you know you can claim up to ₹10,000 on your savings account interest under Section 80TTA?</p>
+                                <a href="#tax-saving-options/80tta" class="learn-more">Learn More &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Section-5 Learn -->
+            <section id="learn" class="container-fluid container-lg py-5">
+                <h2 class="display-6 fw-bold mb-5 heading-line text-center">Learn & Understand Taxes</h2>
+                
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <!-- Card 1: What is TDS -->
+                    <div class="col">
+                        <a href="{{ url_for('tds') }}" class="text-decoration-none text-dark">
+                            <div class="card h-100 rounded-4 shadow-sm hover-card">
+                                <div class="card-body p-4 text-center">
+                                    <div class="icon-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                                        </svg>
+                                    </div>
+                                    <h5 class="card-title fw-bold">What is TDS (Tax Deducted at Source)?</h5>
+                                    <p class="card-text text-muted">A clear explanation of what TDS is, who deducts it, and how it affects your overall tax liability.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Card 2: Old vs. New Regime -->
+                    <div class="col">
+                        <a href={{ url_for('old_new_regime') }} class="text-decoration-none text-dark">
+                            <div class="card h-100 rounded-4 shadow-sm hover-card">
+                                <div class="card-body p-4 text-center">
+                                    <div class="icon-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                                        </svg>
+                                    </div>
+                                    <h5 class="card-title fw-bold">Old vs. New Tax Regime: Explained</h5>
+                                    <p class="card-text text-muted">Understand the key differences between the old and new tax regimes and how to choose the one that benefits you most.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Card 3: Form 16 Part A -->
+                    <div class="col">
+                        <a href={{ url_for('form16_partA') }} class="text-decoration-none text-dark">
+                            <div class="card h-100 rounded-4 shadow-sm hover-card">
+                                <div class="card-body p-4 text-center">
+                                    <div class="icon-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                        </svg>
+                                    </div>
+                                    <h5 class="card-title fw-bold">Form 16 Part A: What it Contains</h5>
+                                    <p class="card-text text-muted">A breakdown of Part A, which contains the details of tax deducted at source (TDS) by your employer, your PAN, and other key details.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Card 4: Form 16 Part B -->
+                    <div class="col">
+                        <a href="{{ url_for('form16_partB') }}" class="text-decoration-none text-dark">
+                            <div class="card h-100 rounded-4 shadow-sm hover-card">
+                                <div class="card-body p-4 text-center">
+                                    <div class="icon-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                        </svg>
+                                    </div>
+                                    <h5 class="card-title fw-bold">Form 16 Part B: Decoding Your Salary</h5>
+                                    <p class="card-text text-muted">A guide to Part B, which includes a detailed breakdown of your salary components, exemptions, and the various deductions you have claimed.</p>
+                                </div>
+                            </div>
+                        </a>  
+                    </div>
+
+                    <!-- Card 5: Gross Salary vs. Taxable Income -->
+                    <div class="col">
+                        <a href={{ url_for('gross_salary') }} class="text-decoration-none text-dark">
+                            <div class="card h-100 rounded-4 shadow-sm hover-card">
+                                <div class="card-body p-4 text-center">
+                                    <div class="icon-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+                                            <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                            <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                    </div>
+                                    <h5 class="card-title fw-bold">Gross vs. Taxable Income</h5>
+                                    <p class="card-text text-muted">Understand the crucial difference between your total earnings (Gross Salary) and the amount on which your income tax is calculated (Taxable Income).</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Card 6: Chapter VI-A Deductions -->
+                    <div class="col">
+                        <a href={{ url_for('chapter_VIA_deductions') }} class="text-decoration-none text-dark">
+                            <div class="card h-100 rounded-4 shadow-sm hover-card">
+                                <div class="card-body p-4 text-center">
+                                    <div class="icon-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
+                                            <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                                            <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2z"/>
+                                        </svg>
+                                    </div>
+                                    <h5 class="card-title fw-bold">Decoding Chapter VI-A Deductions</h5>
+                                    <p class="card-text text-muted">A simple guide to common tax-saving sections like 80C, 80D, 80E, and more, which are essential for reducing your taxable income.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section-6 Tax saving options-->
+            <section id="tax-saving-options" class="tax-saving-options-section container-fluid container-lg py-5">
+                <div class="container">
+                    <h2 class="display-6 fw-bold mb-5 heading-line text-center">Deep Dive into Tax-Saving Options</h2>
+                    <div class="options-grid">
+                        <div class="option-card fade-in-item">
+                            <h3><a href="#tax-saving-options/nps" class="text-decoration-none text-dark">National Pension System (NPS)</a></h3>
+                            <p>Key features of NPS contributions:</p>
+                            <ul>
+                                <li>An additional deduction of up to ₹50,000 is available under Section 80CCD(1B).</li>
+                                <li>This is over and above the ₹1.5 lakh limit of Section 80C.</li>
+                            </ul>
+                        </div>
+                        <div class="option-card fade-in-item">
+                            <h3><a href="#tax-saving-options/80e" class="text-decoration-none text-dark">Education Loan Interest (Section 80E)</a></h3>
+                            <p>Deduction for interest on education loans:</p>
+                            <ul>
+                                <li>You can claim a deduction on the full interest paid on an education loan.</li>
+                                <li>This deduction is for a maximum of 8 years.</li>
+                                <li>There is no upper limit on the interest amount that can be deducted.</li>
+                            </ul>
+                        </div>
+                        <div class="option-card fade-in-item">
+                            <h3><a href="#tax-saving-options/80gg" class="text-decoration-none text-dark">Rent Deduction (Section 80GG)</a></h3>
+                            <p>Conditions for claiming rent deduction:</p>
+                            <ul>
+                                <li>This is for individuals who do not receive HRA as part of their salary.</li>
+                                <li>The deduction can be up to ₹60,000 per year.</li>
+                                <li>You must not own a residential property in the city where you work.</li>
+                            </ul>
+                        </div>
+                        <div class="option-card fade-in-item">
+                            <h3><a href="#tax-saving-options/80tta" class="text-decoration-none text-dark">Savings Account Interest (Section 80TTA)</a></h3>
+                            <p>Explanation of the deduction for savings account interest:</p>
+                            <ul>
+                                <li>A deduction of up to ₹10,000 is available on interest earned from savings accounts.</li>
+                                <li>This deduction is applicable to all individuals and HUFs.</li>
+                            </ul>
+                        </div>
+                        <div class="option-card fade-in-item">
+                            <h3><a href="#tax-saving-options/80g" class="text-decoration-none text-dark">Charitable Donations (Section 80G)</a></h3>
+                            <p>Overview of how donations can save tax:</p>
+                            <ul>
+                                <li>Donations made to certain approved funds and institutions are eligible for deduction.</li>
+                                <li>The deduction amount can be either 50% or 100% of the donated amount, depending on the recipient.</li>
+                            </ul>
+                        </div>
+                        <div class="option-card fade-in-item">
+                            <h3><a href="#tax-saving-options/80d" class="text-decoration-none text-dark">Health Insurance Premium (Section 80D)</a></h3>
+                            <p>Claim deductions for health insurance premiums paid for your family:</p>
+                            <ul>
+                                <li>Up to ₹25,000 for self, spouse, and children.</li>
+                                <li>Additional ₹25,000 for parents (or ₹50,000 if they are senior citizens).</li>
+                            </ul>
+                        </div>
+                        <div class="option-card fade-in-item">
+                            <h3><a href="#tax-saving-options/80c" class="text-decoration-none text-dark">Investments & Expenses (Section 80C)</a></h3>
+                            <p>The most popular tax-saving section, with a deduction limit of ₹1.5 lakhs. It includes:</p>
+                            <ul>
+                                <li>Life Insurance premiums.</li>
+                                <li>Provident Fund (EPF/PPF) contributions.</li>
+                                <li>Equity Linked Savings Schemes (ELSS).</li>
+                                <li>Children's tuition fees.</li>
+                            </ul>
+                        </div>
+                        <div class="option-card fade-in-item">
+                            <h3><a href="#tax-saving-options/80tta-ttb" class="text-decoration-none text-dark">Interest on Deposits (80TTA & 80TTB)</a></h3>
+                            <p>Save tax on interest earned from bank deposits:</p>
+                            <ul>
+                                <li>*80TTA:* Up to ₹10,000 deduction on savings account interest for all individuals.</li>
+                                <li>*80TTB:* Up to ₹50,000 deduction on all bank interest for senior citizens.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Section-7 About us-->
+            <section id="about-us" class="container-fluid container-lg py-5">
+                <h2 class="display-6 fw-bold mb-5 heading-line text-center">About Us</h2>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="about-card text-center">
+                            <div class="icon-container mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
+                                    <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z"/>
+                                    <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+                                </svg>
+                            </div>
+                            
+                            <h3 class="mt-4">Our Mission</h3>
+                            <p>We're on a mission to make taxes simple. Upload your Form 16 and get clear, personalized advice to navigate the tax landscape with confidence.</p>
+
+                            <h3 class="mt-5">Why We Built This</h3>
+                            <p>We built this tool out of a personal struggle to understand complex tax jargon and optimize our own savings. We believe that everyone deserves clear, actionable insights into their finances, without needing to be a tax expert. Our goal is to provide a free, secure, and intelligent way for everyone to maximize their savings.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Section-8 Security & Privacy-->
+            <section id="security-privacy" class="container-fluid container-lg py-5">
+                <h2 class="display-6 fw-bold mb-5 heading-line text-center">Security & Privacy</h2>
+                <div class="row g-4 justify-content-center">
+                    <!-- Card 1: Data Handling -->
+                    <div class="col-lg-4 col-md-6 fade-in-item">
+                        <div class="option-card text-center">
+                            <div class="icon-container mx-auto">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
+                                    <path d="M4 11H2v3h2zm5-4H7v7h2zm5-5v12h-2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/>
+                                </svg>
+                            </div>
+                            <h3>Data Handling</h3>
+                            <p><strong>We do not store your Form 16.</strong> All analysis happens in real-time on our secure servers, and your data is immediately deleted once the session is closed and results are displayed. We adhere to a strict no-data-retention policy for your uploaded documents.</p>
+                        </div>
+                    </div>
+
+                   
+
+                    <!-- Card 3: Privacy Policy -->
+                    <div class="col-lg-4 col-md-6 fade-in-item">
+                        <div class="option-card text-center">
+                            <div class="icon-container mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+                                    <path d="M5.338 1.59a61 61 0 0 0-2.837.856.48.48 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.7 10.7 0 0 0 2.287 2.233c.346.244.652.42.893.533q.18.085.293.118a1 1 0 0 0 .101.025 1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/>
+                                    <path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415"/>
+                                </svg>
+                            </div>
+                            <h3>Privacy Policy</h3>
+                            <p>Our comprehensive privacy policy details what minimal information (if any, like anonymous usage statistics to improve the tool) we collect and how it's used. We are committed to transparency and protecting your privacy. <a href="#" class="text-primary text-decoration-none fw-bold"></br>Read our full Privacy Policy.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="container mt-3">
+      {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+    <!--Section-9 Footer-->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; AI Tax Advisor. All rights reserved.</p>
+            <div class="footer-links">
+                <div class="alert alert-Disclaimer">
+                    <strong>Disclamer:</strong>This analysis is for informational purposes only and should not be considered professional tax advice.</br> Please consult a certified Chartered Accountant (CA) before making any financial or investment decisions. 
+                </div>
+                <a href="#security-privacy">Privacy Policy</a>
+                <a href="#about-us">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    
+</html>

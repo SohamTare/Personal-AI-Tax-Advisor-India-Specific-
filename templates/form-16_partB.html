@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 16 Part B Explained</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+        }
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+        .heading-line::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #0d6efd;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        .back-button {
+            background-color: #0d6efd;
+            color: #fff;
+            border-radius: 2rem;
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0b5ed7;
+        }
+        .info-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        .info-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="p-4">
+
+<div class="container mt-5">
+    <a href="{{ url_for('index') }}" class="btn back-button mb-4">← Back to Learn</a>
+
+    <div class="card p-5">
+        <h1 class="display-6 fw-bold mb-4">Form 16 Part B: Decoding Your Salary</h1>
+        
+        <p class="lead text-muted">
+            Form 16 Part B is a detailed breakdown of your salary components, exemptions, and the deductions you have claimed. It is a key document for calculating your final taxable income.
+        </p>
+
+        <h3 class="mt-4 text-primary">Key Components of Part B</h3>
+        <p>
+            This part provides a comprehensive view of your income, including all the allowances and benefits.
+        </p>
+        <ul class="info-list">
+            <li><strong>Gross Salary:</strong> The total salary paid to you, including all allowances and perquisites before any deductions or exemptions.</li>
+            <li><strong>Exemptions and Allowances:</strong> A list of exemptions you have claimed, such as House Rent Allowance (HRA) or Leave Travel Allowance (LTA), which reduce your taxable income.</li>
+            <li><strong>Deductions (Chapter VI-A):</strong> A summary of the tax-saving investments and expenses you've declared to your employer (e.g., under Section 80C, 80D).</li>
+            <li><strong>Taxable Income:</strong> The final amount of income after subtracting all exemptions and deductions from your gross salary, on which your tax is calculated.</li>
+        </ul>
+
+        <h3 class="mt-5 text-primary">Why is it important?</h3>
+        <p>
+            Part B helps you understand how your final taxable income was arrived at. It is essential for cross-verifying the deductions your employer has claimed on your behalf and for ensuring that your tax return is accurate. It's the most important section for identifying potential missed deductions that our tool can help you with.
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

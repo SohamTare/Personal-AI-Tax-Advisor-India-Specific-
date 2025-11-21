@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Advisor Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>general advice
+        body { background-color: #f8f9fa; }
+        .container { max-width: 900px; }
+
+        /* Generic cards */
+        .card { border: none; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1); }
+
+        .list-group-item { border: none; padding-left: 0; }
+        .list-group-item strong { display: inline-block; min-width: 200px; }
+
+        /* Section headings */
+        .section-heading {
+            color: #000;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Suggestions */
+        .suggestion-card {
+            background-color: #e9f3ff;
+            border-left: 5px solid #0d6efd;
+            margin-bottom: 1rem;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .suggestion-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .suggestion-header { font-size: 1.25rem; font-weight: 600; color: #0d6efd; margin-bottom: 0.5rem; }
+        .suggestion-tip { color: #495057; font-size: 0.95rem; margin-bottom: 0.3rem; }
+
+        /* Download Button */
+        .download-button {
+            background-color: #0d6efd;
+            color: #fff;
+            border-radius: 2rem;
+            padding: 0.75rem 2rem;
+            transition: background-color 0.3s ease;
+        }
+        .download-button:hover { background-color: #0b5ed7; }
+
+        /* Dashboard Comparison Card */
+        .dashboard-section { margin-top: 30px; }
+        .dashboard-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #222;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .regime-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 25px 35px;
+            width: 100%;
+            margin: auto;
+            transition: transform 0.2s ease-in-out;
+        }
+        .regime-card:hover { transform: translateY(-3px); }
+        .regime-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 1.05rem;
+        }
+        .label { font-weight: 600; color: #333; }
+        .value { font-weight: 500; color: #007bff; }
+        .suggested { color: #28a745; font-weight: 600; }
+        .divider {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 15px 0;
+        }
+        .highlight { font-weight: 600; color: #ff9800; }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+
+    <!-- Form 16 Data -->
+    <h1 class="section-heading">Form 16 Extracted Information</h1>
+    <div class="card p-4">
+        <ul class="list-group list-group-flush">
+            {% for key, value in parsed_data.items() %}
+            <li class="list-group-item"><strong>{{ key.replace('_', ' ').title() }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Modern Tax Regime Comparison -->
+    <div class="dashboard-section">
+        <h2 class="dashboard-title">💡 Tax Regime Comparison</h2>
+        <div class="regime-card">
+            <div class="regime-row">
+                <span class="label">Old Regime:</span>
+                <span class="value">Rs. {{ result.old.final_tax if result.old.final_tax is defined else 'N/A' }}</span>
+            </div>
+
+            <div class="regime-row">
+                <span class="label">New Regime:</span>
+                <span class="value">Rs. {{ result.new.final_tax if result.new.final_tax is defined else 'N/A' }}</span>
+            </div>
+
+            <div class="regime-row">
+                <span class="label">Suggested Regime:</span>
+                <span class="value suggested">
+                    {% if result.old.final_tax < result.new.final_tax %}
+                        Old Regime
+                    {% elif result.old.final_tax > result.new.final_tax %}
+                        New Regime
+                    {% else %}
+                        Either (Both are same)
+                    {% endif %}
+                </span>
+            </div>
+
+            <hr class="divider">
+
+            <div class="regime-row highlight">
+                <span class="label">💰 Total Tax Saved Upto:</span>
+                <span class="value">
+                    {% if result.old.final_tax < result.new.final_tax %}
+                        Rs. {{ (result.new.final_tax - result.old.final_tax) | round(0) }}
+                    {% elif result.new.final_tax < result.old.final_tax %}
+                        Rs. {{ (result.old.final_tax - result.new.final_tax) | round(0) }}
+                    {% else %}
+                        Rs. 0
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggestions -->
+    <h2 class="section-heading">💡 AI Tax Advisor Suggestions</h2>
+    <div id="suggestions-container" class="card p-4 bg-white">
+        {% for key, suggestion in result.suggestions.items() %}
+        <div class="suggestion-card">
+            <h5 class="suggestion-header">{{ key }}</h5>
+            {% if suggestion.claimed is defined and suggestion.limit is defined and suggestion.remaining is defined %}
+            <p class="suggestion-tip">Claimed: {{ suggestion.claimed }}, Limit: {{ suggestion.limit }}, Remaining: {{ suggestion.remaining }}</p>
+            {% endif %}
+            {% if suggestion.options is defined %}
+            <p class="suggestion-tip"><strong>Suggested options:</strong></p>
+            <ul class="list-group list-group-flush">
+                {% for option in suggestion.options %}
+                <li class="list-group-item suggestion-tip bg-transparent">{{ option }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if suggestion.note is defined %}
+            <p class="suggestion-tip">{{ suggestion.note }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- PDF Download -->
+    <div class="text-center mt-5 mb-5">
+        <a href="{{ url_for('download_pdf') }}" class="btn download-button">
+            Download PDF
+        </a>
+    </div>
+
+</div>
+
+<!-- JavaScript to Randomize Suggestions -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("suggestions-container");
+    const cards = Array.from(container.children);
+    const shuffled = cards.sort(() => Math.random() - 0.5);
+    container.innerHTML = "";
+    shuffled.forEach(card => container.appendChild(card));
+});
+</script>
+
+</body>
+</html>
