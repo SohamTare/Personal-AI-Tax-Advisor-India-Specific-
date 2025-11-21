@@ -1,0 +1,5 @@
+Flask
+reportlab
+PyMuPDF
+pdfplumber
+werkzeug
